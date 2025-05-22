@@ -1,0 +1,2 @@
+[clones]
+clone_host ansible_user=user ansible_host=192.168.56.102 ansible_python_interpreter=/usr/bin/python3

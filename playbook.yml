@@ -1,0 +1,23 @@
+- name: Install Nginx & PHP on _host machine
+  hosts: clones
+  become: yes
+
+  tasks:
+
+  - name: Update package lists
+    apt:
+      update_cache: true
+
+  - name: Install Nginx and PHP
+    apt:
+      name: "{{ item }}"
+      state: present
+    loop:
+    - nginx
+    - php-fpm
+
+  - name: Enable Nginx service at boot time
+    systemd:
+      name: nginx
+      enabled: true
+      state: started
